@@ -73,7 +73,10 @@ namespace WArchiveTools.Compression
                     // Copy Run
                     for (int k = 0; k < numBytes; k++)
                     {
-                        output[destPos] = output[copySource];
+                        if (destPos < uncompressedSize)
+                        {
+                            output[destPos] = output[copySource];
+                        }
                         copySource++;
                         destPos++;
                     }
